@@ -22,7 +22,7 @@ dotnet publish -r win-x64 -c Release
 And execute:
 
 ```powershell
-./bin/Release/netcoreapp3.1/win-x64/publish/SingleFileConsoleApp.exe
+./bin/Release/netcoreapp3.1/win-x64/publish/SingleFileConsoleApp.exe arg1 arg2
 ```
 
 You should see something like:
@@ -34,6 +34,14 @@ Environment Version:
     3.1.9
 Environment Framework:
     .NET Core 3.1.9
+AppContext TargetFrameworkName:
+    .NETCoreApp,Version=v3.1
+AppContext BaseDirectory:
+    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\
+Command Line Arguments:
+    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
+    arg1
+    arg2
 Process Id:
     1464
 Process Name:
@@ -57,7 +65,7 @@ Process Current Directory:
 Process MainModule FileName:
     C:\vagrant\dotnet-core-single-file-console-app\bin\Release\netcoreapp3.1\win-x64\publish\SingleFileConsoleApp.exe
 Process MainModule Length:
-    27345832 (26.079017639160156 MB)
+    27346344 (26.079505920410156 MB)
 Executing Assembly Location:
     C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
 Executing Assembly CodeBase:
@@ -96,7 +104,6 @@ Loaded Modules:
     C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Text.RegularExpressions.dll
     C:\vagrant\dotnet-core-single-file-console-app\bin\Release\netcoreapp3.1\win-x64\publish\SingleFileConsoleApp.exe
     C:\Windows\System32\advapi32.dll
-    C:\Windows\SYSTEM32\apphelp.dll
     C:\Windows\System32\bcrypt.dll
     C:\Windows\System32\bcryptPrimitives.dll
     C:\Windows\System32\cfgmgr32.dll
@@ -139,7 +146,7 @@ dotnet publish -r ubuntu.20.04-x64 -c Release
 And execute:
 
 ```bash
-./bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+./bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp arg1 arg2
 ```
 
 You should see something like:
@@ -151,6 +158,14 @@ Environment Version:
     3.1.9
 Environment Framework:
     .NET Core 3.1.9
+AppContext TargetFrameworkName:
+    .NETCoreApp,Version=v3.1
+AppContext BaseDirectory:
+    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/
+Command Line Arguments:
+    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
+    arg1
+    arg2
 Process Id:
     9257
 Process Name:
@@ -174,7 +189,7 @@ Process Current Directory:
 Process MainModule FileName:
     /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp
 Process MainModule Length:
-    37525905 (35.78749179840088 MB)
+    37526417 (35.78798007965088 MB)
 Executing Assembly Location:
     /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
 Executing Assembly CodeBase:

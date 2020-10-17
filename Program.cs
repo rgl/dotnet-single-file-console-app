@@ -18,6 +18,13 @@ namespace SingleFileConsoleApp
             Console.WriteLine($"OS Version:\n    {Environment.OSVersion}");
             Console.WriteLine($"Environment Version:\n    {Environment.Version}");
             Console.WriteLine($"Environment Framework:\n    {RuntimeInformation.FrameworkDescription}");
+            Console.WriteLine($"AppContext TargetFrameworkName:\n    {AppContext.TargetFrameworkName}");
+            Console.WriteLine($"AppContext BaseDirectory:\n    {AppContext.BaseDirectory}");
+            Console.WriteLine($"Command Line Arguments:");
+            foreach (var v in Environment.GetCommandLineArgs())
+            {
+                Console.WriteLine($"    {v}");
+            }
             Console.WriteLine($"Process Id:\n    {Process.GetCurrentProcess().Id}");
             Console.WriteLine($"Process Name:\n    {Process.GetCurrentProcess().ProcessName}");
             Console.WriteLine($"Process MainModule FileVersionInfo:\n{Regex.Replace(Process.GetCurrentProcess().MainModule.FileVersionInfo.ToString().Trim(), "^", "    ", RegexOptions.Multiline)}");

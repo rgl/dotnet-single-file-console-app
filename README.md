@@ -69,7 +69,7 @@ Process Current Directory:
 Process MainModule FileName:
     C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
 Process MainModule Length:
-    12148876 (11.586071014404297 MB)
+    3292597 (3.1400651931762695 MB)
 Loaded Assemblies:
     Microsoft.Win32.Primitives
     SingleFileConsoleApp
@@ -89,7 +89,6 @@ Loaded Modules:
     C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\coreclr.dll
     C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
     C:\Windows\System32\ADVAPI32.dll
-    C:\Windows\SYSTEM32\apphelp.dll
     C:\Windows\System32\BCrypt.dll
     C:\Windows\System32\bcryptPrimitives.dll
     C:\Windows\System32\cfgmgr32.dll
@@ -175,7 +174,7 @@ Process Current Directory:
 Process MainModule FileName:
     /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
 Process MainModule Length:
-    21879454 (20.865873336791992 MB)
+    13096682 (12.489969253540039 MB)
 Loaded Assemblies:
     Microsoft.Win32.Primitives
     SingleFileConsoleApp
@@ -183,7 +182,6 @@ Loaded Assemblies:
     System.Collections.Concurrent
     System.Collections.Immutable
     System.Collections.NonGeneric
-    System.ComponentModel
     System.ComponentModel.Primitives
     System.Console
     System.Diagnostics.FileVersionInfo
@@ -196,8 +194,6 @@ Loaded Assemblies:
     System.Text.RegularExpressions
 Loaded Modules:
     [vdso]
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     /lib/x86_64-linux-gnu/ld-2.31.so

@@ -15,7 +15,7 @@
         CopyUsed (default): Assembly-level trimming
         Link:               Member-level trimming
     -->
-    <TrimMode>CopyUsed</TrimMode>
+    <TrimMode>Link</TrimMode>
     <!--
       PublishSingleFile creates a single exe with the application binaries.
       At runtime it first extracts the contents to %TEMP%\.net\<exe filename>\<some hash>, e.g.:

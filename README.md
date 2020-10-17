@@ -8,8 +8,9 @@ For more information see:
 * [Single file deployment and executable - API incompatibility](https://docs.microsoft.com/en-us/dotnet/core/deploying/single-file#api-incompatibility)
 * [Trim self-contained deployments and executables](https://docs.microsoft.com/en-us/dotnet/core/deploying/trim-self-contained)
 * [Trimming options](https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options)
+* [App Trimming in .NET 5](https://devblogs.microsoft.com/dotnet/app-trimming-in-net-5/)
 
-The following example outputs were done with the [dotnet-core 3.1 sdk](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+The following example outputs were done with the [dotnet 5.0 rc.2 sdk](https://dotnet.microsoft.com/download/dotnet/5.0).
 
 ## Windows 2019 host
 
@@ -22,24 +23,27 @@ dotnet publish -r win-x64 -c Release
 And execute:
 
 ```powershell
-./bin/Release/netcoreapp3.1/win-x64/publish/SingleFileConsoleApp.exe arg1 arg2
+./bin/Release/net5.0/win-x64/publish/SingleFileConsoleApp.exe arg1 arg2
 ```
+
+**NB** The above file does not really contain all the dependencies, you also
+need to distribute all the files beside it, like `coreclr.dll`.
 
 You should see something like:
 
 ```plain
 OS Version:
-    Microsoft Windows NT 6.2.9200.0
+    Microsoft Windows NT 10.0.17763.0
 Environment Version:
-    3.1.9
+    5.0.0
 Environment Framework:
-    .NET Core 3.1.9
+    .NET 5.0.0-rc.2.20475.5
 AppContext TargetFrameworkName:
-    .NETCoreApp,Version=v3.1
+    .NETCoreApp,Version=v5.0
 AppContext BaseDirectory:
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\
 Command Line Arguments:
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
     arg1
     arg2
 Process Id:
@@ -47,7 +51,7 @@ Process Id:
 Process Name:
     SingleFileConsoleApp
 Process MainModule FileVersionInfo:
-    File:             C:\vagrant\dotnet-core-single-file-console-app\bin\Release\netcoreapp3.1\win-x64\publish\SingleFileConsoleApp.exe
+    File:             C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
     InternalName:     SingleFileConsoleApp.dll
     OriginalFilename: SingleFileConsoleApp.dll
     FileVersion:      1.0.0.0
@@ -63,48 +67,30 @@ Process MainModule FileVersionInfo:
 Process Current Directory:
     C:\vagrant\dotnet-core-single-file-console-app
 Process MainModule FileName:
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\netcoreapp3.1\win-x64\publish\SingleFileConsoleApp.exe
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
 Process MainModule Length:
-    27346344 (26.079505920410156 MB)
-Executing Assembly Location:
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
-Executing Assembly CodeBase:
-    file:///C:/Users/vagrant/AppData/Local/Temp/1/.net/SingleFileConsoleApp/oyi0y2oh.aao/SingleFileConsoleApp.dll
+    12148876 (11.586071014404297 MB)
 Loaded Assemblies:
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\Microsoft.Win32.Primitives.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Collections.NonGeneric.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.ComponentModel.Primitives.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Console.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Diagnostics.FileVersionInfo.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Diagnostics.Process.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.IO.FileSystem.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Linq.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Private.CoreLib.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Runtime.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Runtime.InteropServices.RuntimeInformation.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Text.RegularExpressions.dll
+    Microsoft.Win32.Primitives
+    SingleFileConsoleApp
+    System.Collections.Concurrent
+    System.Collections.NonGeneric
+    System.ComponentModel.Primitives
+    System.Console
+    System.Diagnostics.FileVersionInfo
+    System.Diagnostics.Process
+    System.IO.FileSystem
+    System.Linq
+    System.Private.CoreLib
+    System.Runtime.InteropServices.RuntimeInformation
+    System.Text.RegularExpressions
 Loaded Modules:
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\clrjit.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\coreclr.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\hostfxr.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\hostpolicy.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\Microsoft.Win32.Primitives.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\SingleFileConsoleApp.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Collections.NonGeneric.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.ComponentModel.Primitives.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Console.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Diagnostics.FileVersionInfo.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Diagnostics.Process.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.IO.FileSystem.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Linq.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Private.CoreLib.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Runtime.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Runtime.InteropServices.RuntimeInformation.dll
-    C:\Users\vagrant\AppData\Local\Temp\1\.net\SingleFileConsoleApp\oyi0y2oh.aao\System.Text.RegularExpressions.dll
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\netcoreapp3.1\win-x64\publish\SingleFileConsoleApp.exe
-    C:\Windows\System32\advapi32.dll
-    C:\Windows\System32\bcrypt.dll
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\clrjit.dll
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\coreclr.dll
+    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
+    C:\Windows\System32\ADVAPI32.dll
+    C:\Windows\SYSTEM32\apphelp.dll
+    C:\Windows\System32\BCrypt.dll
     C:\Windows\System32\bcryptPrimitives.dll
     C:\Windows\System32\cfgmgr32.dll
     C:\Windows\System32\combase.dll
@@ -146,7 +132,7 @@ dotnet publish -r ubuntu.20.04-x64 -c Release
 And execute:
 
 ```bash
-./bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp arg1 arg2
+./bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp arg1 arg2
 ```
 
 You should see something like:
@@ -155,15 +141,15 @@ You should see something like:
 OS Version:
     Unix 5.4.0.51
 Environment Version:
-    3.1.9
+    5.0.0
 Environment Framework:
-    .NET Core 3.1.9
+    .NET 5.0.0-rc.2.20475.5
 AppContext TargetFrameworkName:
-    .NETCoreApp,Version=v3.1
+    .NETCoreApp,Version=v5.0
 AppContext BaseDirectory:
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/
 Command Line Arguments:
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     arg1
     arg2
 Process Id:
@@ -171,7 +157,7 @@ Process Id:
 Process Name:
     SingleFileConsoleApp
 Process MainModule FileVersionInfo:
-    File:             /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    File:             /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     InternalName:
     OriginalFilename:
     FileVersion:
@@ -187,62 +173,55 @@ Process MainModule FileVersionInfo:
 Process Current Directory:
     /home/rgl/Projects/dotnet-core-single-file-console-app
 Process MainModule FileName:
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
 Process MainModule Length:
-    37526417 (35.78798007965088 MB)
-Executing Assembly Location:
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
-Executing Assembly CodeBase:
-    file:///var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
+    21879454 (20.865873336791992 MB)
 Loaded Assemblies:
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/SingleFileConsoleApp.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Collections.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Collections.Immutable.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Collections.NonGeneric.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.ComponentModel.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.ComponentModel.Primitives.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Console.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Diagnostics.FileVersionInfo.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Diagnostics.Process.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.IO.FileSystem.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Linq.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Private.CoreLib.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Reflection.Metadata.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Runtime.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Runtime.InteropServices.RuntimeInformation.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Text.RegularExpressions.dll
+    Microsoft.Win32.Primitives
+    SingleFileConsoleApp
+    System.Collections
+    System.Collections.Concurrent
+    System.Collections.Immutable
+    System.Collections.NonGeneric
+    System.ComponentModel
+    System.ComponentModel.Primitives
+    System.Console
+    System.Diagnostics.FileVersionInfo
+    System.Diagnostics.Process
+    System.IO.FileSystem
+    System.Linq
+    System.Private.CoreLib
+    System.Reflection.Metadata
+    System.Runtime.InteropServices.RuntimeInformation
+    System.Text.RegularExpressions
 Loaded Modules:
     [vdso]
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     /lib/x86_64-linux-gnu/ld-2.31.so
     /lib/x86_64-linux-gnu/libc-2.31.so
+    /lib/x86_64-linux-gnu/libcom_err.so.2.1
     /lib/x86_64-linux-gnu/libdl-2.31.so
     /lib/x86_64-linux-gnu/libgcc_s.so.1
+    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
     /lib/x86_64-linux-gnu/libm-2.31.so
-    /lib/x86_64-linux-gnu/libnsl-2.31.so
-    /lib/x86_64-linux-gnu/libnss_compat-2.31.so
-    /lib/x86_64-linux-gnu/libnss_files-2.31.so
-    /lib/x86_64-linux-gnu/libnss_nis-2.31.so
     /lib/x86_64-linux-gnu/libpthread-2.31.so
+    /lib/x86_64-linux-gnu/libresolv-2.31.so
     /lib/x86_64-linux-gnu/librt-2.31.so
+    /lib/x86_64-linux-gnu/libz.so.1.2.11
+    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
     /usr/lib/x86_64-linux-gnu/libicudata.so.66.1
     /usr/lib/x86_64-linux-gnu/libicui18n.so.66.1
     /usr/lib/x86_64-linux-gnu/libicuuc.so.66.1
+    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
     /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.0.0.0
-    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.0.0.0
-    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
     /usr/lib/x86_64-linux-gnu/liburcu-bp.so.6.1.0
-    /usr/lib/x86_64-linux-gnu/liburcu-cds.so.6.1.0
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libclrjit.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libcoreclr.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libcoreclr.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libcoreclrtraceptprovider.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libhostfxr.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/libhostpolicy.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Collections.dll
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Globalization.Native.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Native.so
-    /var/tmp/.net/rgl/SingleFileConsoleApp/mudu220c.bv5/System.Private.CoreLib.dll
 Press ENTER to exit.
 ```

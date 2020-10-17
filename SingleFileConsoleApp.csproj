@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <!--
       PublishTrimmed will trim the application dependencies to include only what is actually used by the application.
       NB if you use reflection you might need to configure which assemblies/types/methods need to be included, e.g.:
@@ -10,6 +10,12 @@
           </ItemGroup>
     -->
     <PublishTrimmed>true</PublishTrimmed>
+    <!--
+      TrimMode selects the trimming mode:
+        CopyUsed (default): Assembly-level trimming
+        Link:               Member-level trimming
+    -->
+    <TrimMode>CopyUsed</TrimMode>
     <!--
       PublishSingleFile creates a single exe with the application binaries.
       At runtime it first extracts the contents to %TEMP%\.net\<exe filename>\<some hash>, e.g.:

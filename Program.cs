@@ -31,10 +31,8 @@ namespace SingleFileConsoleApp
             Console.WriteLine($"Process Current Directory:\n    {Directory.GetCurrentDirectory()}");
             Console.WriteLine($"Process MainModule FileName:\n    {mainModulePath}");
             Console.WriteLine($"Process MainModule Length:\n    {mainModuleFileInfo.Length} ({mainModuleFileInfo.Length / 1024.0 / 1024.0} MB)");
-            Console.WriteLine($"Executing Assembly Location:\n    {Assembly.GetExecutingAssembly().Location}");
-            Console.WriteLine($"Executing Assembly CodeBase:\n    {Assembly.GetExecutingAssembly().CodeBase}");
             Console.WriteLine($"Loaded Assemblies:");
-            foreach (var a in AppDomain.CurrentDomain.GetAssemblies().Select(a => a.Location.ToString()).OrderBy(a => a))
+            foreach (var a in AppDomain.CurrentDomain.GetAssemblies().Select(a => $"{a.GetName().Name}").OrderBy(a => a))
             {
                 Console.WriteLine($"    {a}");
             }

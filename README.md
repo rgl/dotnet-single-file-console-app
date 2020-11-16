@@ -10,7 +10,7 @@ For more information see:
 * [Trimming options](https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options)
 * [App Trimming in .NET 5](https://devblogs.microsoft.com/dotnet/app-trimming-in-net-5/)
 
-The following example outputs were done with the [dotnet 5.0 rc.2 sdk](https://dotnet.microsoft.com/download/dotnet/5.0).
+The following example outputs were done with the [dotnet 5.0 sdk](https://dotnet.microsoft.com/download/dotnet/5.0).
 
 ## Windows 2019 host
 
@@ -138,11 +138,11 @@ You should see something like:
 
 ```plain
 OS Version:
-    Unix 5.4.0.51
+    Unix 5.4.0.53
 Environment Version:
     5.0.0
 Environment Framework:
-    .NET 5.0.0-rc.2.20475.5
+    .NET 5.0.0
 AppContext TargetFrameworkName:
     .NETCoreApp,Version=v5.0
 AppContext BaseDirectory:
@@ -174,7 +174,7 @@ Process Current Directory:
 Process MainModule FileName:
     /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
 Process MainModule Length:
-    13096682 (12.489969253540039 MB)
+    13095603 (12.488940238952637 MB)
 Loaded Assemblies:
     Microsoft.Win32.Primitives
     SingleFileConsoleApp

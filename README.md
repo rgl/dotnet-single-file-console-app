@@ -1,6 +1,6 @@
 # Single file console application
 
-See [SingleFileConsoleApp.csproj](SingleFileConsoleApp.csproj) to known which settings you need to enable to create a single file exe application.
+See [SingleFileConsoleApp.csproj](SingleFileConsoleApp.csproj) to known which settings you need to enable to create a single file exe .NET 6.0 application.
 
 For more information see:
 
@@ -10,20 +10,20 @@ For more information see:
 * [Trimming options](https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options)
 * [App Trimming in .NET 5](https://devblogs.microsoft.com/dotnet/app-trimming-in-net-5/)
 
-The following example outputs were done with the [dotnet 5.0 sdk](https://dotnet.microsoft.com/download/dotnet/5.0).
+The following example outputs were done with the [dotnet 6.0 sdk](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-## Windows 2019 host
+## Windows 2022 host
 
 Build and publish the single file application:
 
 ```powershell
-dotnet publish -r win-x64 -c Release
+dotnet publish --runtime win-x64 --self-contained --configuration Release
 ```
 
 And execute:
 
 ```powershell
-./bin/Release/net5.0/win-x64/publish/SingleFileConsoleApp.exe arg1 arg2
+./bin/Release/net6.0/win-x64/publish/SingleFileConsoleApp.exe arg1 arg2
 ```
 
 **NB** The above file does not really contain all the dependencies, you also
@@ -33,17 +33,17 @@ You should see something like:
 
 ```plain
 OS Version:
-    Microsoft Windows NT 10.0.17763.0
+    Microsoft Windows NT 10.0.20348.0
 Environment Version:
-    5.0.0
+    6.0.0
 Environment Framework:
-    .NET 5.0.0-rc.2.20475.5
+    .NET 6.0.0-rtm.21522.10
 AppContext TargetFrameworkName:
-    .NETCoreApp,Version=v5.0
+    .NETCoreApp,Version=v6.0
 AppContext BaseDirectory:
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\
+    C:\vagrant\dotnet-single-file-console-app\bin\Release\net6.0\win-x64\publish\
 Command Line Arguments:
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
+    C:\vagrant\dotnet-single-file-console-app\bin\Release\net6.0\win-x64\publish\SingleFileConsoleApp.exe
     arg1
     arg2
 Process Id:
@@ -51,7 +51,7 @@ Process Id:
 Process Name:
     SingleFileConsoleApp
 Process MainModule FileVersionInfo:
-    File:             C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
+    File:             C:\vagrant\dotnet-single-file-console-app\bin\Release\net6.0\win-x64\publish\SingleFileConsoleApp.exe
     InternalName:     SingleFileConsoleApp.dll
     OriginalFilename: SingleFileConsoleApp.dll
     FileVersion:      1.0.0.0
@@ -65,11 +65,11 @@ Process MainModule FileVersionInfo:
     SpecialBuild:     False
     Language:         Language Neutral
 Process Current Directory:
-    C:\vagrant\dotnet-core-single-file-console-app
+    C:\vagrant\dotnet-single-file-console-app
 Process MainModule FileName:
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
+    C:\vagrant\dotnet-single-file-console-app\bin\Release\net6.0\win-x64\publish\SingleFileConsoleApp.exe
 Process MainModule Length:
-    3292597 (3.1400651931762695 MB)
+    11898907 (11,347681999206543 MB)
 Loaded Assemblies:
     Microsoft.Win32.Primitives
     SingleFileConsoleApp
@@ -79,25 +79,23 @@ Loaded Assemblies:
     System.Console
     System.Diagnostics.FileVersionInfo
     System.Diagnostics.Process
-    System.IO.FileSystem
     System.Linq
     System.Private.CoreLib
+    System.Runtime
     System.Runtime.InteropServices.RuntimeInformation
     System.Text.RegularExpressions
 Loaded Modules:
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\clrjit.dll
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\coreclr.dll
-    C:\vagrant\dotnet-core-single-file-console-app\bin\Release\net5.0\win-x64\publish\SingleFileConsoleApp.exe
+    C:\vagrant\dotnet-single-file-console-app\bin\Release\net6.0\win-x64\publish\SingleFileConsoleApp.exe
     C:\Windows\System32\ADVAPI32.dll
-    C:\Windows\System32\BCrypt.dll
+    C:\Windows\SYSTEM32\apphelp.dll
+    C:\Windows\SYSTEM32\BCrypt.dll
     C:\Windows\System32\bcryptPrimitives.dll
-    C:\Windows\System32\cfgmgr32.dll
     C:\Windows\System32\combase.dll
-    C:\Windows\System32\cryptsp.dll
     C:\Windows\System32\GDI32.dll
     C:\Windows\System32\gdi32full.dll
+    C:\Windows\SYSTEM32\icu.dll
     C:\Windows\System32\IMM32.DLL
-    C:\Windows\System32\kernel.appcore.dll
+    C:\Windows\SYSTEM32\kernel.appcore.dll
     C:\Windows\System32\KERNEL32.DLL
     C:\Windows\System32\KERNELBASE.dll
     C:\Windows\System32\msvcp_win.dll
@@ -105,18 +103,13 @@ Loaded Modules:
     C:\Windows\SYSTEM32\ntdll.dll
     C:\Windows\System32\ole32.dll
     C:\Windows\System32\OLEAUT32.dll
-    C:\Windows\System32\powrprof.dll
-    C:\Windows\System32\profapi.dll
     C:\Windows\System32\RPCRT4.dll
     C:\Windows\System32\sechost.dll
-    C:\Windows\System32\shcore.dll
     C:\Windows\System32\SHELL32.dll
-    C:\Windows\System32\shlwapi.dll
     C:\Windows\System32\ucrtbase.dll
     C:\Windows\System32\USER32.dll
-    C:\Windows\SYSTEM32\version.dll
+    C:\Windows\SYSTEM32\VERSION.dll
     C:\Windows\System32\win32u.dll
-    C:\Windows\System32\windows.storage.dll
 Press ENTER to exit.
 ```
 
@@ -125,30 +118,30 @@ Press ENTER to exit.
 Build and publish the single file application:
 
 ```bash
-dotnet publish -r ubuntu.20.04-x64 -c Release
+dotnet publish --runtime ubuntu.20.04-x64 --self-contained --configuration Release
 ```
 
 And execute:
 
 ```bash
-./bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp arg1 arg2
+./bin/Release/net6.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp arg1 arg2
 ```
 
 You should see something like:
 
 ```plain
 OS Version:
-    Unix 5.4.0.53
+    Unix 5.4.0.90
 Environment Version:
-    5.0.0
+    6.0.0
 Environment Framework:
-    .NET 5.0.0
+    .NET 6.0.0-rtm.21522.10
 AppContext TargetFrameworkName:
-    .NETCoreApp,Version=v5.0
+    .NETCoreApp,Version=v6.0
 AppContext BaseDirectory:
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/
+    /home/rgl/Projects/dotnet-single-file-console-app/bin/Release/net6.0/ubuntu.20.04-x64/publish/
 Command Line Arguments:
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-single-file-console-app/bin/Release/net6.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     arg1
     arg2
 Process Id:
@@ -156,7 +149,7 @@ Process Id:
 Process Name:
     SingleFileConsoleApp
 Process MainModule FileVersionInfo:
-    File:             /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    File:             /home/rgl/Projects/dotnet-single-file-console-app/bin/Release/net6.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     InternalName:
     OriginalFilename:
     FileVersion:
@@ -170,15 +163,14 @@ Process MainModule FileVersionInfo:
     SpecialBuild:     False
     Language:
 Process Current Directory:
-    /home/rgl/Projects/dotnet-core-single-file-console-app
+    /home/rgl/Projects/dotnet-single-file-console-app
 Process MainModule FileName:
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-single-file-console-app/bin/Release/net6.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
 Process MainModule Length:
-    13095603 (12.488940238952637 MB)
+    13248506 (12.634759902954102 MB)
 Loaded Assemblies:
     Microsoft.Win32.Primitives
     SingleFileConsoleApp
-    System.Collections
     System.Collections.Concurrent
     System.Collections.Immutable
     System.Collections.NonGeneric
@@ -186,38 +178,26 @@ Loaded Assemblies:
     System.Console
     System.Diagnostics.FileVersionInfo
     System.Diagnostics.Process
-    System.IO.FileSystem
     System.Linq
     System.Private.CoreLib
     System.Reflection.Metadata
+    System.Runtime
     System.Runtime.InteropServices.RuntimeInformation
     System.Text.RegularExpressions
 Loaded Modules:
     [vdso]
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
-    /home/rgl/Projects/dotnet-core-single-file-console-app/bin/Release/net5.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
+    /home/rgl/Projects/dotnet-single-file-console-app/bin/Release/net6.0/ubuntu.20.04-x64/publish/SingleFileConsoleApp
     /lib/x86_64-linux-gnu/ld-2.31.so
     /lib/x86_64-linux-gnu/libc-2.31.so
-    /lib/x86_64-linux-gnu/libcom_err.so.2.1
     /lib/x86_64-linux-gnu/libdl-2.31.so
     /lib/x86_64-linux-gnu/libgcc_s.so.1
-    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
     /lib/x86_64-linux-gnu/libm-2.31.so
     /lib/x86_64-linux-gnu/libpthread-2.31.so
-    /lib/x86_64-linux-gnu/libresolv-2.31.so
     /lib/x86_64-linux-gnu/librt-2.31.so
     /lib/x86_64-linux-gnu/libz.so.1.2.11
-    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
-    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
     /usr/lib/x86_64-linux-gnu/libicudata.so.66.1
     /usr/lib/x86_64-linux-gnu/libicui18n.so.66.1
     /usr/lib/x86_64-linux-gnu/libicuuc.so.66.1
-    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
-    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
-    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
-    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.0.0.0
-    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
-    /usr/lib/x86_64-linux-gnu/liburcu-bp.so.6.1.0
 Press ENTER to exit.
 ```

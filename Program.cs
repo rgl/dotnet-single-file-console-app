@@ -11,7 +11,7 @@ namespace SingleFileConsoleApp
     {
         static void Main(string[] args)
         {
-            var mainModulePath = Process.GetCurrentProcess().MainModule.FileName;
+            var mainModulePath = Environment.ProcessPath;
             var mainModuleFileInfo = new FileInfo(mainModulePath);
 
             Console.WriteLine($"OS Version:\n    {Environment.OSVersion}");

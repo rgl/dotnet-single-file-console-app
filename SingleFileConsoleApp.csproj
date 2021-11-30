@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <!--
       PublishTrimmed will trim the application dependencies to include only what is actually used by the application.
       NB if you use reflection you might need to configure which assemblies/types/methods need to be included, e.g.:
@@ -18,10 +18,6 @@
     <TrimMode>Link</TrimMode>
     <!--
       PublishSingleFile creates a single exe with the application binaries.
-      At runtime it first extracts the contents to %TEMP%\.net\<exe filename>\<some hash>, e.g.:
-        C:\Users\RUILOP~1\AppData\Local\Temp\.net\SingleFileConsoleApp\2jejrexs.5y3
-      and executes from there.
-      NB there is nothing removing those temporary directories... so the user has to manage them himself.
     -->
     <PublishSingleFile>true</PublishSingleFile>
     <RootNamespace>SingleFileConsoleApp</RootNamespace>

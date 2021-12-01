@@ -6,6 +6,7 @@ For more information see:
 
 * [Single file deployment and executable](https://docs.microsoft.com/en-us/dotnet/core/deploying/single-file)
 * [Single file deployment and executable - API incompatibility](https://docs.microsoft.com/en-us/dotnet/core/deploying/single-file#api-incompatibility)
+* [Single-file Apps](https://devblogs.microsoft.com/dotnet/announcing-net-6/#single-file-apps)
 * [Trim self-contained deployments and executables](https://docs.microsoft.com/en-us/dotnet/core/deploying/trim-self-contained)
 * [Trimming options](https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming-options)
 * [App Trimming in .NET 5](https://devblogs.microsoft.com/dotnet/app-trimming-in-net-5/)
